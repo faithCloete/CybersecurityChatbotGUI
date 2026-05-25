@@ -78,6 +78,32 @@ namespace CybersecurityChatbotGUI
                 }
             }
 
+            //ADDING SENTIMENT RESPONSES
+
+            //detect worried sentiment
+            if (question.Contains("worried") || question.Contains("scared"))
+            {
+                return "It's understandable to feel worried about online threats. A good way to stay safe is to avoid clicking suspicious links and never share personal information with unknown sources.";
+            }
+
+            //detect frustration
+            if (question.Contains("frustrated") || question.Contains("annoyed"))
+            {
+                return "Cybersecurity can feel overwhelming sometimes, but learning small safety habits makes a big difference. Start by using strong passwords and enabling two-factor authentication.";
+            }
+
+            //detect confusion
+            if (question.Contains("confused") || question.Contains("don't understand"))
+            {
+                return "That's okay. Cybersecurity concepts can be tricky at first. Try asking me about passwords, phishing, scams, or privacy for simpler explanations.";
+            }
+
+            //detect curiosity
+            if (question.Contains("curious") || question.Contains("interested"))
+            {
+                return "Curiosity is a great way to learn about cybersecurity. Staying informed helps protect you from scams and online threats.";
+            }
+
             //loop through keywords
             foreach (string keyword in responses.Keys)
             {//START OF FOREACH
