@@ -15,6 +15,9 @@ namespace CybersecurityChatbotGUI
         private Dictionary<string, List<string>> responses;
         private Random random = new Random();
 
+        //adding variable for memory
+        private string lastTopic = "";
+
         //method to return chatbot response
         public string GetResponse(string question)
         {//start getResponse method
@@ -22,12 +25,40 @@ namespace CybersecurityChatbotGUI
             //convert message to lowercase
             question = question.ToLower();
 
-            //loop through keywords
-            foreach (string keyword in responses.Keys)
+            //follow-up responses
+            if (question.Contains("tell me more") ||
+                question.Contains("another tip") ||
+                question.Contains("explain more"))
+
+            {//start of if
+                //check if chatbot remembers previous topic
+                if (lastTopic != "")
+                {//start of if inside if
+                    List<string> followUpResponses = responses[lastTopic];
+
+                    int index = random.Next(followUpResponses.Count);
+
+                    return followUpResponses[index];
+                }//end of if inside if
+
+                else
+                {//start of else
+                    return "Please ask about a cybersecurity topic first.";
+                }//end of else
+
+            }//end of if
+
+                //loop through keywords
+                foreach (string keyword in responses.Keys)
             {//START OF FOREACH
                 //check if question contains keyword
+
                 if (question.Contains(keyword))
                 {//START OF IF
+
+                    //remember topic
+                    lastTopic = keyword;
+
                     //get list of responses
                     List<string> possibleResponses = responses[keyword];
 
@@ -36,6 +67,7 @@ namespace CybersecurityChatbotGUI
 
                     return possibleResponses[index];
                 }//END OF IF
+
             }//END OF FOR EACH
 
            //GENERAL CHATBOT QUESTIONS /RESPONSES
