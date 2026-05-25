@@ -18,6 +18,8 @@ namespace CybersecurityChatbotGUI
         //adding variable for memory
         private string lastTopic = "";
 
+        private string favouriteTopic = "";
+
         //method to return chatbot response
         public string GetResponse(string question)
         {//start getResponse method
@@ -48,9 +50,38 @@ namespace CybersecurityChatbotGUI
 
             }//end of if
 
-                //loop through keywords
+            //recall remembered topic
+            if (question.Contains("what do you remember") ||
+                question.Contains("my interest"))
+            {
+                if (favouriteTopic != "")
+                {
+                    return "You told me you're interested in " + favouriteTopic + ". Staying informed about it helps you stay safer online.";
+                }
+                else
+                {
+                    return "You haven't shared your favourite cybersecurity topic yet.";
+                }
+            }
+
+            //detect user interests
+            if (question.Contains("i like"))
+            {
                 foreach (string keyword in responses.Keys)
+                {
+                    if (question.Contains(keyword))
+                    {
+                        favouriteTopic = keyword;
+
+                        return "Great! I'll remember that you're interested in " + keyword + ". It's an important part of cybersecurity.";
+                    }
+                }
+            }
+
+            //loop through keywords
+            foreach (string keyword in responses.Keys)
             {//START OF FOREACH
+
                 //check if question contains keyword
 
                 if (question.Contains(keyword))
@@ -65,7 +96,13 @@ namespace CybersecurityChatbotGUI
                     //pick random response
                     int index = random.Next(possibleResponses.Count);
 
+                    if (keyword == favouriteTopic)
+                    {
+                        return "Since you're interested in " + keyword + ", here's a tip: " + possibleResponses[index];
+                    }
+
                     return possibleResponses[index];
+
                 }//END OF IF
 
             }//END OF FOR EACH
