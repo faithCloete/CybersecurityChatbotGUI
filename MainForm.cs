@@ -16,5 +16,26 @@ namespace CybersecurityChatbotGUI
         {
             InitializeComponent();
         }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            string userMessage = txtUserInput.Text;
+
+            //check if textbox is empty
+            if (userMessage == "")
+            {
+                MessageBox.Show("Please enter a message.");
+                return;
+            }
+
+            //display user message
+            rtbChat.AppendText("You: " + userMessage + Environment.NewLine);
+
+            //temporary bot response
+            rtbChat.AppendText("Cybersecurity Bot: I received your message." + Environment.NewLine + Environment.NewLine);
+
+            //clear textbox after sending
+            txtUserInput.Clear();
+        }
     }
 }
