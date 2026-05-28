@@ -35,7 +35,7 @@ namespace CybersecurityChatbotGUI
             string userMessage = txtUserInput.Text;
 
             //check if textbox is empty
-            if (userMessage == "")
+            if (string.IsNullOrWhiteSpace(userMessage))
             {//START OF IF
                 MessageBox.Show("Please enter a message.");
                 return;
@@ -46,10 +46,27 @@ namespace CybersecurityChatbotGUI
 
             //temporary bot response
             string botResponse = chatbot.GetResponse(userMessage);
-            rtbChat.AppendText("Cybersecurity Bot: " + botResponse + Environment.NewLine);
+            rtbChat.AppendText("Cybersecurity Bot: " + botResponse + Environment.NewLine + Environment.NewLine); //extra line for readability
 
             //clear textbox after sending
             txtUserInput.Clear();
+
+            //auto scroll chat
+            rtbChat.SelectionStart = rtbChat.Text.Length;
+            rtbChat.ScrollToCaret();
         }//END OF btnSend_Click METHOD
+
+        
+
+        //enter key support
+        private void txtUserInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSend.PerformClick();
+
+                e.SuppressKeyPress = true;
+            }
+        }
     }//END OF CLASS
 }//END OF NAMESPACE

@@ -41,13 +41,14 @@
             this.lblTitle.ForeColor = System.Drawing.Color.Pink;
             this.lblTitle.Location = new System.Drawing.Point(192, 25);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(470, 39);
+            this.lblTitle.Size = new System.Drawing.Size(452, 37);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Cybersecurity Awareness Chatbot";
             // 
             // rtbChat
             // 
             this.rtbChat.BackColor = System.Drawing.Color.Black;
+            this.rtbChat.Font = new System.Drawing.Font("Consolas", 11F);
             this.rtbChat.ForeColor = System.Drawing.Color.White;
             this.rtbChat.Location = new System.Drawing.Point(40, 83);
             this.rtbChat.Name = "rtbChat";
@@ -62,6 +63,7 @@
             this.txtUserInput.Name = "txtUserInput";
             this.txtUserInput.Size = new System.Drawing.Size(650, 22);
             this.txtUserInput.TabIndex = 2;
+            this.txtUserInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUserInput_KeyDown);
             // 
             // btnSend
             // 
