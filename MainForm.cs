@@ -15,10 +15,19 @@ namespace CybersecurityChatbotGUI
 
         //CONNECTING CHATS.CS TO MAINFORM.CS
         Chats chatbot = new Chats();
+
+        //CONNECTING VOICEPROMPT.CS TO MAIFORM.CS
+        VoicePrompt voice = new VoicePrompt();
+
         public MainForm()
         {//START OF MAINFORM METHOD
             InitializeComponent();
-            
+
+            voice.Voice();
+
+            //STARTUP WELCOME MESSAGE
+            rtbChat.AppendText("Cybersecurity Bot: Welcome to the Cybersecurity Awareness Assistant." + Environment.NewLine);
+            rtbChat.AppendText("Cybersecurity Bot: Ask me about passwords, phishing, scams, or privacy." + Environment.NewLine + Environment.NewLine);
         }
 
         private void btnSend_Click(object sender, EventArgs e)
