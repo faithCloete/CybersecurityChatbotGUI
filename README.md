@@ -131,7 +131,7 @@ Contains greeting and branding functionality from Part 1.
 1. Clone the repository:
 
 ```bash
-git clone [YOUR_GITHUB_LINK]
+git clone [https://github.com/faithCloete]
 ```
 
 2. Open the solution file in Visual Studio.
