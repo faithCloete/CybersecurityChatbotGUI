@@ -159,25 +159,6 @@ Two GitHub releases/tags were created:
 
 ---
 
-# Screenshots
-
-## GUI Interface
-
-(Add screenshot here)
-
-## CI Workflow
-
-(Add successful GitHub Actions screenshot here)
-
----
-
-# Presentation Video
-
-YouTube Unlisted Link:
-(Add YouTube link here)
-
----
-
 # Author
 
 Faith Mhlanga
