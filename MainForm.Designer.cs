@@ -44,6 +44,15 @@
             this.btnDeleteTask = new System.Windows.Forms.Button();
             this.btnCompleteTask = new System.Windows.Forms.Button();
             this.dgvTasks = new System.Windows.Forms.DataGridView();
+            this.lstActivityLog = new System.Windows.Forms.ListBox();
+            this.lblQuestion = new System.Windows.Forms.Label();
+            this.rbOptionA = new System.Windows.Forms.RadioButton();
+            this.rbOptionB = new System.Windows.Forms.RadioButton();
+            this.rbOptionC = new System.Windows.Forms.RadioButton();
+            this.rbOptionD = new System.Windows.Forms.RadioButton();
+            this.btnSubmitAnswer = new System.Windows.Forms.Button();
+            this.lblScore = new System.Windows.Forms.Label();
+            this.btnStartQuiz = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTasks)).BeginInit();
             this.SuspendLayout();
@@ -193,12 +202,118 @@
             this.dgvTasks.Size = new System.Drawing.Size(404, 114);
             this.dgvTasks.TabIndex = 17;
             // 
+            // lstActivityLog
+            // 
+            this.lstActivityLog.FormattingEnabled = true;
+            this.lstActivityLog.ItemHeight = 16;
+            this.lstActivityLog.Location = new System.Drawing.Point(817, 368);
+            this.lstActivityLog.Name = "lstActivityLog";
+            this.lstActivityLog.Size = new System.Drawing.Size(120, 84);
+            this.lstActivityLog.TabIndex = 18;
+            // 
+            // lblQuestion
+            // 
+            this.lblQuestion.AutoSize = true;
+            this.lblQuestion.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblQuestion.Location = new System.Drawing.Point(19, 329);
+            this.lblQuestion.Name = "lblQuestion";
+            this.lblQuestion.Size = new System.Drawing.Size(60, 16);
+            this.lblQuestion.TabIndex = 19;
+            this.lblQuestion.Text = "Question";
+            // 
+            // rbOptionA
+            // 
+            this.rbOptionA.AutoSize = true;
+            this.rbOptionA.ForeColor = System.Drawing.Color.LightCoral;
+            this.rbOptionA.Location = new System.Drawing.Point(12, 359);
+            this.rbOptionA.Name = "rbOptionA";
+            this.rbOptionA.Size = new System.Drawing.Size(79, 20);
+            this.rbOptionA.TabIndex = 20;
+            this.rbOptionA.TabStop = true;
+            this.rbOptionA.Text = "Option A";
+            this.rbOptionA.UseVisualStyleBackColor = true;
+            // 
+            // rbOptionB
+            // 
+            this.rbOptionB.AutoSize = true;
+            this.rbOptionB.ForeColor = System.Drawing.Color.LightCoral;
+            this.rbOptionB.Location = new System.Drawing.Point(13, 398);
+            this.rbOptionB.Name = "rbOptionB";
+            this.rbOptionB.Size = new System.Drawing.Size(79, 20);
+            this.rbOptionB.TabIndex = 21;
+            this.rbOptionB.TabStop = true;
+            this.rbOptionB.Text = "Option B";
+            this.rbOptionB.UseVisualStyleBackColor = true;
+            // 
+            // rbOptionC
+            // 
+            this.rbOptionC.AutoSize = true;
+            this.rbOptionC.ForeColor = System.Drawing.Color.LightCoral;
+            this.rbOptionC.Location = new System.Drawing.Point(12, 443);
+            this.rbOptionC.Name = "rbOptionC";
+            this.rbOptionC.Size = new System.Drawing.Size(79, 20);
+            this.rbOptionC.TabIndex = 22;
+            this.rbOptionC.TabStop = true;
+            this.rbOptionC.Text = "Option C";
+            this.rbOptionC.UseVisualStyleBackColor = true;
+            // 
+            // rbOptionD
+            // 
+            this.rbOptionD.AutoSize = true;
+            this.rbOptionD.ForeColor = System.Drawing.Color.LightCoral;
+            this.rbOptionD.Location = new System.Drawing.Point(12, 489);
+            this.rbOptionD.Name = "rbOptionD";
+            this.rbOptionD.Size = new System.Drawing.Size(80, 20);
+            this.rbOptionD.TabIndex = 23;
+            this.rbOptionD.TabStop = true;
+            this.rbOptionD.Text = "Option D";
+            this.rbOptionD.UseVisualStyleBackColor = true;
+            // 
+            // btnSubmitAnswer
+            // 
+            this.btnSubmitAnswer.Location = new System.Drawing.Point(12, 532);
+            this.btnSubmitAnswer.Name = "btnSubmitAnswer";
+            this.btnSubmitAnswer.Size = new System.Drawing.Size(112, 23);
+            this.btnSubmitAnswer.TabIndex = 24;
+            this.btnSubmitAnswer.Text = "Submit Answer";
+            this.btnSubmitAnswer.UseVisualStyleBackColor = true;
+            this.btnSubmitAnswer.Click += new System.EventHandler(this.btnSubmitAnswer_Click);
+            // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.ForeColor = System.Drawing.Color.LightCoral;
+            this.lblScore.Location = new System.Drawing.Point(12, 575);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(56, 16);
+            this.lblScore.TabIndex = 25;
+            this.lblScore.Text = "Score: 0";
+            // 
+            // btnStartQuiz
+            // 
+            this.btnStartQuiz.Location = new System.Drawing.Point(13, 613);
+            this.btnStartQuiz.Name = "btnStartQuiz";
+            this.btnStartQuiz.Size = new System.Drawing.Size(111, 23);
+            this.btnStartQuiz.TabIndex = 26;
+            this.btnStartQuiz.Text = "Start Quiz";
+            this.btnStartQuiz.UseVisualStyleBackColor = true;
+            this.btnStartQuiz.Click += new System.EventHandler(this.btnStartQuiz_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(990, 654);
+            this.Controls.Add(this.btnStartQuiz);
+            this.Controls.Add(this.lblScore);
+            this.Controls.Add(this.btnSubmitAnswer);
+            this.Controls.Add(this.rbOptionD);
+            this.Controls.Add(this.rbOptionC);
+            this.Controls.Add(this.rbOptionB);
+            this.Controls.Add(this.rbOptionA);
+            this.Controls.Add(this.lblQuestion);
+            this.Controls.Add(this.lstActivityLog);
             this.Controls.Add(this.dgvTasks);
             this.Controls.Add(this.btnCompleteTask);
             this.Controls.Add(this.btnDeleteTask);
@@ -242,6 +357,15 @@
         private System.Windows.Forms.Button btnDeleteTask;
         private System.Windows.Forms.Button btnCompleteTask;
         private System.Windows.Forms.DataGridView dgvTasks;
+        private System.Windows.Forms.ListBox lstActivityLog;
+        private System.Windows.Forms.Label lblQuestion;
+        private System.Windows.Forms.RadioButton rbOptionA;
+        private System.Windows.Forms.RadioButton rbOptionB;
+        private System.Windows.Forms.RadioButton rbOptionC;
+        private System.Windows.Forms.RadioButton rbOptionD;
+        private System.Windows.Forms.Button btnSubmitAnswer;
+        private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.Button btnStartQuiz;
     }
 }
 
