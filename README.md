@@ -1,170 +1,217 @@
-# Cybersecurity Awareness Chatbot - Part 2
+# Cybersecurity Awareness Chatbot (POE Part 3)
 
 ## Overview
 
-The Cybersecurity Awareness Chatbot is a C# application developed to educate South African citizens about online safety and cybersecurity threats. The chatbot simulates interactive conversations with users and provides guidance on common cybersecurity topics such as phishing, password safety, scams, privacy, and safe browsing.
+The Cybersecurity Awareness Chatbot is a Windows Forms application developed in C# that helps users learn about cybersecurity while managing security-related tasks. The project evolved through three phases and now includes a graphical user interface, cybersecurity task management, a quiz game, NLP-style keyword recognition, activity logging, and MySQL database integration.
 
-Part 2 expands the original console application into a Windows Forms GUI application with additional intelligent features such as:
+## Features
 
-* Keyword recognition
-* Randomised responses
-* Conversation flow
-* Memory and recall
-* Sentiment detection
-* Voice greeting integration
+### Cybersecurity Chatbot
+The chatbot provides cybersecurity guidance and responds to user questions using keyword recognition and natural language processing techniques.
 
-The chatbot was developed using object-orientated programming principles and organised into multiple classes for readability and maintainability.
+Topics include:
 
----
+- Password Security
+- Phishing Awareness
+- Privacy Protection
+- Safe Browsing
+- Cybersecurity Best Practices
 
-# Features
 
-## GUI Interface
+### Voice Greeting
 
-* Windows Forms graphical user interface
-* User-friendly chat layout
-* Colour formatting and structured interface
-* Cybersecurity logo integration
+The application includes a WAV voice greeting that plays when the application starts.
 
-## Voice Greeting
 
-* WAV audio greeting plays when the application launches
-* Uses the `System.Media.SoundPlayer` class
+### Task Assistant
 
-## Keyword Recognition
+Users can manage cybersecurity-related tasks through the GUI.
 
-The chatbot recognises cybersecurity-related topics such as:
+Functions include:
 
-* Passwords
-* Phishing
-* Privacy
-* Scams
-* Safe browsing
+- Add Tasks
+- View Tasks
+- Delete Tasks
+- Mark Tasks as Completed
+- Set Reminder Dates
 
-The chatbot responds with relevant cybersecurity guidance based on detected keywords.
+Example tasks:
 
-## Random Responses
+- Enable Two-Factor Authentication
+- Review Privacy Settings
+- Update Passwords
 
-The chatbot uses lists and random selection to provide different responses for repeated cybersecurity topics, making interactions more natural and engaging.
 
-## Conversation Flow
+### MySQL Database Integration
 
-The chatbot remembers the current discussion topic and supports follow-up requests such as:
+All tasks are stored in a MySQL database.
 
-* "Tell me more"
-* "Another tip"
-* "Explain more"
+Stored information includes:
 
-## Memory and Recall
+- Task ID
+- Task Title
+- Description
+- Reminder Date
+- Completion Status
 
-The chatbot can remember user interests and personalise future responses.
+
+### Cybersecurity Quiz
+
+The application includes an interactive cybersecurity quiz.
+
+Features:
+
+- 10+ Questions
+- Multiple Choice Questions
+- True/False Questions
+- Immediate Feedback
+- Explanations for Answers
+- Score Tracking
+- Final Performance Feedback
+
+
+### NLP Simulation
+
+The chatbot uses keyword detection and string matching to simulate Natural Language Processing.
+
+Recognised topics include:
+
+- Task Requests
+- Reminders
+- Quiz Requests
+- Password Security
+- Phishing
+- Privacy
 
 Example:
 
-* User: "I like privacy."
-* Chatbot remembers this preference and refers to it later in conversation.
+User:
+Can you remind me to update my password?
 
-## Sentiment Detection
+Chatbot:
+I can help you manage cybersecurity tasks.
 
-The chatbot detects simple sentiments such as:
 
-* Worried
-* Frustrated
-* Confused
-* Curious
+### Activity Log
 
-The chatbot adjusts its responses to provide encouragement and cybersecurity advice automatically.
+The system records important actions performed by the chatbot.
 
-## Error Handling
+Logged activities include:
 
-* Prevents empty user input
-* Handles unknown questions gracefully
-* Prevents application crashes from invalid input
+- Task Creation
+- Task Completion
+- Task Deletion
+- Quiz Activity
+- NLP Interactions
 
----
+Users can request:
 
-# Technologies Used
+Show Activity Log
 
-* C#
-* Windows Forms (WinForms)
-* .NET Framework
-* Visual Studio
-* GitHub
-* GitHub Actions (CI)
 
----
+or
 
-# Project Structure
+What have you done for me?
 
-## Main Classes
+to view recent actions.
 
-### Program.cs
 
-Handles application startup and launches the GUI.
+## Technologies Used
 
-### MainForm.cs
+### Programming Language
 
-Controls the GUI interaction and user communication.
+- C#
 
-### Chats.cs
+### GUI Framework
 
-Contains chatbot logic including:
+- Windows Forms
 
-* Keyword recognition
-* Random responses
-* Sentiment detection
-* Memory recall
-* Conversation flow
+### Database
 
-### VoicePrompt.cs
+- MySQL
 
-Handles audio greeting playback.
+### Development Environment
 
-### GreetAndName.cs
+- Visual Studio
 
-Contains greeting and branding functionality from Part 1.
+### Database Tool
 
----
+- MySQL Workbench
 
-# How to Run the Application
 
-1. Clone the repository:
+## Project Structure
 
-```bash
-git clone [https://github.com/faithCloete]
+### Main Components
+
+| File | Purpose |
+|--------|---------|
+| MainForm.cs | Main GUI and application logic |
+| Chats.cs | Chatbot response handling |
+| VoicePrompt.cs | Voice greeting functionality |
+| DatabaseHelper.cs | Database connection management |
+| TaskRepository.cs | Database task operations |
+| TaskItem.cs | Task model |
+| QuizQuestion.cs | Quiz question model |
+| ActivityLog.cs | Activity log management |
+| Program.cs | Application entry point |
+
+
+## How to Run
+
+### Requirements
+
+- Visual Studio
+- .NET Framework
+- MySQL Server
+- MySQL Workbench
+- MySql.Data package
+
+### Steps
+
+1. Clone or download the repository.
+2. Open the solution in Visual Studio.
+3. Ensure MySQL Server is running.
+4. Create the required database and Tasks table.
+5. Update the connection string if necessary.
+6. Build the solution.
+7. Run the application.
+
+
+## Database Table
+
+```sql
+CREATE TABLE Tasks
+(
+    TaskID INT PRIMARY KEY AUTO_INCREMENT,
+    Title VARCHAR(255),
+    Description TEXT,
+    ReminderDate DATETIME,
+    IsCompleted BOOLEAN
+);
 ```
 
-2. Open the solution file in Visual Studio.
 
-3. Ensure the WAV audio file is included in the project.
+## Author
 
-4. Build and run the application.
+Faith Mhlanga - ST10465004
 
----
 
-# GitHub and Version Control
+## Version History
 
-This project uses GitHub for version control with meaningful commits throughout development.
+### Version 1.0
+- Console-based chatbot
+- Voice greeting
+- Cybersecurity responses
 
-GitHub Actions was implemented for Continuous Integration (CI) to ensure successful builds and project validation.
+### Version 2.0
+- Windows Forms GUI
+- Dynamic responses
+- Memory features
+- Sentiment detection
 
----
-
-# Releases
-
-Two GitHub releases/tags were created:
-
-* v1.0 - Part 1 Complete
-* v2.0 - Part 2 Complete
-
----
-
-# Author
-
-Faith Mhlanga
-
----
-
-# Purpose of the Project
-
-This chatbot was developed as part of a cybersecurity awareness initiative to educate users about online safety practices and common cyber threats affecting South African citizens.
+### Version 3.0
+- MySQL task management
+- Cybersecurity quiz
+- NLP simulation
+- Activity logging
+- Full POE implementation
