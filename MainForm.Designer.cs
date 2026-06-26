@@ -94,9 +94,9 @@
             // picLogo
             // 
             this.picLogo.Image = ((System.Drawing.Image)(resources.GetObject("picLogo.Image")));
-            this.picLogo.Location = new System.Drawing.Point(470, 3);
+            this.picLogo.Location = new System.Drawing.Point(470, 12);
             this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(70, 55);
+            this.picLogo.Size = new System.Drawing.Size(70, 44);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picLogo.TabIndex = 4;
             this.picLogo.TabStop = false;
@@ -118,16 +118,16 @@
             // 
             // dtpReminder
             // 
-            this.dtpReminder.Location = new System.Drawing.Point(665, 126);
+            this.dtpReminder.Location = new System.Drawing.Point(647, 126);
             this.dtpReminder.Name = "dtpReminder";
-            this.dtpReminder.Size = new System.Drawing.Size(246, 22);
+            this.dtpReminder.Size = new System.Drawing.Size(290, 22);
             this.dtpReminder.TabIndex = 10;
             // 
             // lblTaskTitle
             // 
             this.lblTaskTitle.AutoSize = true;
             this.lblTaskTitle.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblTaskTitle.Location = new System.Drawing.Point(561, 33);
+            this.lblTaskTitle.Location = new System.Drawing.Point(553, 33);
             this.lblTaskTitle.Name = "lblTaskTitle";
             this.lblTaskTitle.Size = new System.Drawing.Size(67, 16);
             this.lblTaskTitle.TabIndex = 11;
@@ -155,9 +155,9 @@
             // 
             // btnAddTask
             // 
-            this.btnAddTask.Location = new System.Drawing.Point(553, 180);
+            this.btnAddTask.Location = new System.Drawing.Point(533, 180);
             this.btnAddTask.Name = "btnAddTask";
-            this.btnAddTask.Size = new System.Drawing.Size(75, 23);
+            this.btnAddTask.Size = new System.Drawing.Size(112, 29);
             this.btnAddTask.TabIndex = 14;
             this.btnAddTask.Text = "Add Task";
             this.btnAddTask.UseVisualStyleBackColor = true;
@@ -165,21 +165,23 @@
             // 
             // btnDeleteTask
             // 
-            this.btnDeleteTask.Location = new System.Drawing.Point(680, 308);
+            this.btnDeleteTask.Location = new System.Drawing.Point(678, 359);
             this.btnDeleteTask.Name = "btnDeleteTask";
-            this.btnDeleteTask.Size = new System.Drawing.Size(93, 22);
+            this.btnDeleteTask.Size = new System.Drawing.Size(119, 32);
             this.btnDeleteTask.TabIndex = 15;
             this.btnDeleteTask.Text = "Delete Task";
             this.btnDeleteTask.UseVisualStyleBackColor = true;
+            this.btnDeleteTask.Click += new System.EventHandler(this.btnDeleteTask_Click);
             // 
             // btnCompleteTask
             // 
-            this.btnCompleteTask.Location = new System.Drawing.Point(533, 307);
+            this.btnCompleteTask.Location = new System.Drawing.Point(533, 359);
             this.btnCompleteTask.Name = "btnCompleteTask";
-            this.btnCompleteTask.Size = new System.Drawing.Size(119, 23);
+            this.btnCompleteTask.Size = new System.Drawing.Size(139, 32);
             this.btnCompleteTask.TabIndex = 16;
             this.btnCompleteTask.Text = "Mark Complete";
             this.btnCompleteTask.UseVisualStyleBackColor = true;
+            this.btnCompleteTask.Click += new System.EventHandler(this.btnCompleteTask_Click);
             // 
             // dgvTasks
             // 
@@ -188,7 +190,7 @@
             this.dgvTasks.Name = "dgvTasks";
             this.dgvTasks.RowHeadersWidth = 51;
             this.dgvTasks.RowTemplate.Height = 24;
-            this.dgvTasks.Size = new System.Drawing.Size(404, 55);
+            this.dgvTasks.Size = new System.Drawing.Size(404, 114);
             this.dgvTasks.TabIndex = 17;
             // 
             // MainForm

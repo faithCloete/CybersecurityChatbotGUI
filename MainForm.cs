@@ -36,6 +36,8 @@ namespace CybersecurityChatbotGUI
 
             txtTaskTitle.Clear();
             txtDescription.Clear();
+
+            LoadTasks();
         }
         
 
@@ -45,9 +47,13 @@ namespace CybersecurityChatbotGUI
 
             voice.Voice();
 
+            LoadTasks();
+
             //STARTUP WELCOME MESSAGE
             rtbChat.AppendText("Cybersecurity Bot: Welcome to the Cybersecurity Awareness Assistant." + Environment.NewLine);
             rtbChat.AppendText("Cybersecurity Bot: Ask me about passwords, phishing, scams, or privacy." + Environment.NewLine + Environment.NewLine);
+
+            
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -94,5 +100,54 @@ namespace CybersecurityChatbotGUI
 
         }
 
+        private void LoadTasks()
+        {
+            TaskRepository repository = new TaskRepository();
+
+            dgvTasks.DataSource = null;
+            dgvTasks.DataSource = repository.GetAllTasks();
+        }
+
+        private void btnCompleteTask_Click(object sender, EventArgs e)
+        {//START OF METHOD
+            if (dgvTasks.SelectedRows.Count > 0)
+            {
+                int taskID = Convert.ToInt32(
+                    dgvTasks.SelectedRows[0].Cells["TaskID"].Value);
+
+                TaskRepository repository = new TaskRepository();
+
+                repository.CompleteTask(taskID);
+
+                MessageBox.Show("Task marked as completed!");
+
+                LoadTasks();
+            }
+            else
+            {
+                MessageBox.Show("Please select a task.");
+            }
+        }//END OF METHOD
+
+        private void btnDeleteTask_Click(object sender, EventArgs e)
+        {
+            if (dgvTasks.SelectedRows.Count > 0)
+            {
+                int taskID = Convert.ToInt32(
+                    dgvTasks.SelectedRows[0].Cells["TaskID"].Value);
+
+                TaskRepository repository = new TaskRepository();
+
+                repository.DeleteTask(taskID);
+
+                MessageBox.Show("Task deleted successfully!");
+
+                LoadTasks();
+            }
+            else
+            {
+                MessageBox.Show("Please select a task.");
+            }
+        }//END OF METHOD
     }//END OF CLASS
 }//END OF NAMESPACE
