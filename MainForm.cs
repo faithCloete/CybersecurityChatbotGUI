@@ -19,6 +19,26 @@ namespace CybersecurityChatbotGUI
         //CONNECTING VOICEPROMPT.CS TO MAIFORM.CS
         VoicePrompt voice = new VoicePrompt();
 
+        private void btnAddTask_Click(object sender, EventArgs e)
+        {
+            TaskItem task = new TaskItem();
+
+            task.Title = txtTaskTitle.Text;
+            task.Description = txtDescription.Text;
+            task.ReminderDate = dtpReminder.Value;
+            task.IsCompleted = false;
+
+            TaskRepository repository = new TaskRepository();
+
+            repository.AddTask(task);
+
+            MessageBox.Show("Task added successfully!");
+
+            txtTaskTitle.Clear();
+            txtDescription.Clear();
+        }
+        
+
         public MainForm()
         {//START OF MAINFORM METHOD
             InitializeComponent();
@@ -68,5 +88,11 @@ namespace CybersecurityChatbotGUI
                 e.SuppressKeyPress = true;
             }
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }//END OF CLASS
 }//END OF NAMESPACE
