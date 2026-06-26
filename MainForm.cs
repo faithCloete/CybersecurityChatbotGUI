@@ -83,9 +83,8 @@ namespace CybersecurityChatbotGUI
             //display user message
             rtbChat.AppendText("You: " + userMessage + Environment.NewLine);
 
-            //temporary bot response
-            string botResponse = chatbot.GetResponse(userMessage);
-            rtbChat.AppendText("Cybersecurity Bot: " + botResponse + Environment.NewLine + Environment.NewLine); //extra line for readability
+            ProcessNLP(userMessage);
+
 
             //clear textbox after sending
             txtUserInput.Clear();
@@ -409,7 +408,108 @@ namespace CybersecurityChatbotGUI
                 questions.Count);
 
             LoadActivityLog();
-        }
+        }//end of method
+
+        //NLP METHOD
+        private void ProcessNLP(string userInput)
+        {
+            string input = userInput.ToLower();
+
+            if (input.Contains("activity log") ||
+    input.Contains("what have you done for me") ||
+    input.Contains("show log"))
+            {
+                rtbChat.AppendText(
+                    "Cybersecurity Bot: Here are my recent actions:" +
+                    Environment.NewLine);
+
+                int startIndex =
+                    Math.Max(0, ActivityLog.Logs.Count - 10);
+
+                for (int i = startIndex; i < ActivityLog.Logs.Count; i++)
+                {
+                    rtbChat.AppendText(
+                        ActivityLog.Logs[i] +
+                        Environment.NewLine);
+                }
+
+                rtbChat.AppendText(Environment.NewLine);
+
+                return;
+            }
+
+            if (input.Contains("task") ||
+                input.Contains("remind") ||
+                input.Contains("reminder"))
+            {
+                rtbChat.AppendText(
+                    "Cybersecurity Bot: I can help you manage cybersecurity tasks. Use the task section to add one." +
+                    Environment.NewLine + Environment.NewLine);
+
+                ActivityLog.AddLog("NLP recognised task-related request");
+                LoadActivityLog();
+
+                return;
+            }
+
+            if (input.Contains("quiz") ||
+                input.Contains("game") ||
+                input.Contains("test"))
+            {
+                rtbChat.AppendText(
+                    "Cybersecurity Bot: Ready to test your cybersecurity knowledge? Click Start Quiz." +
+                    Environment.NewLine + Environment.NewLine);
+
+                ActivityLog.AddLog("NLP recognised quiz request");
+                LoadActivityLog();
+
+                return;
+            }
+
+            if (input.Contains("password"))
+            {
+                rtbChat.AppendText(
+                    "Cybersecurity Bot: Use strong passwords with letters, numbers and symbols." +
+                    Environment.NewLine + Environment.NewLine);
+
+                ActivityLog.AddLog("NLP recognised password topic");
+                LoadActivityLog();
+
+                return;
+            }
+
+            if (input.Contains("phishing"))
+            {
+                rtbChat.AppendText(
+                    "Cybersecurity Bot: Be careful of suspicious emails asking for personal information." +
+                    Environment.NewLine + Environment.NewLine);
+
+                ActivityLog.AddLog("NLP recognised phishing topic");
+                LoadActivityLog();
+
+                return;
+            }
+
+            if (input.Contains("privacy"))
+            {
+                rtbChat.AppendText(
+                    "Cybersecurity Bot: Regularly review privacy settings on your online accounts." +
+                    Environment.NewLine + Environment.NewLine);
+
+                ActivityLog.AddLog("NLP recognised privacy topic");
+                LoadActivityLog();
+
+                return;
+            }
+
+            string botResponse = chatbot.GetResponse(userInput);
+
+            rtbChat.AppendText(
+                "Cybersecurity Bot: " +
+                botResponse +
+                Environment.NewLine +
+                Environment.NewLine);
+        }//END OF METHOD
 
     }//END OF CLASS
 }//END OF NAMESPACE
